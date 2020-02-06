@@ -6,7 +6,7 @@ extern crate rocket;
 #[macro_use]
 extern crate rocket_contrib;
 
-// #[macro_use]
+#[macro_use]
 extern crate diesel;
 
 mod schema;
@@ -22,6 +22,11 @@ fn index(_db_conn: RustyDbConn) -> &'static str {
     "Hello, from Rust! (with a database connection!)"
 }
 
+#[get("/search")]
+fn search(_db_conn: RustyDbConn) -> &'static str {
+    "search success"
+}
+
 #[catch(503)]
 fn service_not_available(_req: &Request) -> &'static str {
     "Service is not available. (Is the database up?)"
@@ -34,6 +39,6 @@ fn main() {
     rocket::ignite()
         .attach(RustyDbConn::fairing())
         .register(catchers![service_not_available])
-        .mount("/api", routes![index])
+        .mount("/api", routes![index, search])
         .launch();
 }

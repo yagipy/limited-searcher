@@ -1,7 +1,7 @@
 [package]
 name = "api_server"
 version = "0.2.0"
-authors = ["Yale Cason <yale.cason@gmail.com>", "Mike Farrell <mrmikefarrell@gmail.com>"]
+authors = ["Hiroyuki Yagihashi <yale.cason@gmail.com>"]
 
 [dependencies]
 rocket = "0.4.2"

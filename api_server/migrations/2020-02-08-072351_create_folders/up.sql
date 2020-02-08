@@ -1,0 +1,5 @@
+CREATE TABLE folders (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    status BOOLEAN NOT NULL DEFAULT 't'
+)

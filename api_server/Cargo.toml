@@ -5,9 +5,14 @@ authors = ["Hiroyuki Yagihashi <yale.cason@gmail.com>"]
 
 [dependencies]
 rocket = "0.4.2"
+rocket_codegen = "0.4.2"
 diesel = { version = "1.4.1", features = ["postgres"] }
-serde = "1.0"
-serde_derive = "1.0"
+dotenv = "0.15.0"
+r2d2-diesel = "1.0.0"
+r2d2 = "0.8.8"
+serde = "1.0.82"
+serde_derive = "1.0.82"
+serde_json = "1.0.33"
 
 [dependencies.rocket_contrib]
 version = "*"

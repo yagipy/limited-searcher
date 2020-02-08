@@ -1,44 +1,37 @@
-#![feature(proc_macro_hygiene, decl_macro)]
-
-#[macro_use]
-extern crate rocket;
-
-#[macro_use]
+#![feature(decl_macro, proc_macro_hygiene)]
+#[macro_use] extern crate rocket;
+#[macro_use] extern crate diesel;
+extern crate dotenv;
+extern crate r2d2;
+extern crate r2d2_diesel;
 extern crate rocket_contrib;
+#[macro_use] extern crate serde_derive;
 
-#[macro_use]
-extern crate diesel;
+use dotenv::dotenv;
 
+mod router;
 mod schema;
-// mod models;
+mod connection;
 
-use rocket::request::Request;
-use rocket_contrib::databases::diesel::PgConnection;
-
-#[get("/")]
-fn index(_db_conn: RustyDbConn) -> &'static str {
-    // Rocket uses the RustyDbConn request guard to provide us with a database
-    // connection from a managed pool.
-    "Hello, from Rust! (with a database connection!)"
-}
-
-#[get("/search")]
-fn search(_db_conn: RustyDbConn) -> &'static str {
-    "search success"
-}
-
-#[catch(503)]
-fn service_not_available(_req: &Request) -> &'static str {
-    "Service is not available. (Is the database up?)"
-}
-
-#[database("rustydb")]
-pub struct RustyDbConn(PgConnection);
+mod users;
+mod folders;
 
 fn main() {
-    rocket::ignite()
-        .attach(RustyDbConn::fairing())
-        .register(catchers![service_not_available])
-        .mount("/api", routes![index, search])
-        .launch();
+    dotenv().ok();
+//    users::router::create_routes();
+//    folders::router::create_routes();
+    router::create_routes();
 }
+
+//#[catch(503)]
+//fn service_not_available(_req: &Request) -> &'static str {
+//    "Service is not available. (Is the database up?)"
+//}
+
+//fn main() {
+//    rocket::ignite()
+//        .attach(RustyDbConn::fairing())
+//        .register(catchers![service_not_available])
+//        .mount("/api", routes![index, search])
+//        .launch();
+//}

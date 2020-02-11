@@ -2,6 +2,7 @@ use rocket;
 use connection;
 use users;
 use folders;
+use urls;
 //use searches;
 
 pub fn create_routes() {
@@ -20,6 +21,12 @@ pub fn create_routes() {
             folders::handler::post,
             folders::handler::put,
             folders::handler::delete,
+
+            urls::handler::all,
+            urls::handler::get,
+            urls::handler::post,
+            urls::handler::put,
+            urls::handler::delete,
             ],
         ).launch();
 }

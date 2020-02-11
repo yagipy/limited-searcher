@@ -5,7 +5,7 @@ pub mod handler;
 pub mod router;
 pub mod repository;
 
-#[derive(Queryable, AsChangeset, Serialize, Deserialize)]
+#[derive(Identifiable, Queryable, AsChangeset, Serialize, Deserialize)]
 #[table_name = "folders"]
 pub struct Folder {
     pub id: i32,

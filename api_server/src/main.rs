@@ -15,6 +15,7 @@ mod connection;
 
 mod users;
 mod folders;
+mod urls;
 
 fn main() {
     dotenv().ok();

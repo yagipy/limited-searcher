@@ -2,7 +2,6 @@
 use super::schema::folders;
 
 pub mod handler;
-pub mod router;
 pub mod repository;
 
 #[derive(Identifiable, Queryable, AsChangeset, Serialize, Deserialize)]

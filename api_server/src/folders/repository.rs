@@ -3,7 +3,7 @@
 use diesel;
 use diesel::prelude::*;
 use schema::folders;
-use folders::Folder;
+use folders::entity::Folder;
 
 pub fn all(connection: &PgConnection) -> QueryResult<Vec<Folder>> {
     folders::table.load::<Folder>(&*connection)

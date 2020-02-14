@@ -3,7 +3,7 @@
 use diesel;
 use diesel::prelude::*;
 use schema::users;
-use users::User;
+use users::entity::User;
 
 pub fn all(connection: &PgConnection) -> QueryResult<Vec<User>> {
     users::table.load::<User>(&*connection)

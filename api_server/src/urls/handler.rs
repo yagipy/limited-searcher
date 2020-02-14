@@ -2,7 +2,7 @@ use connection::DbConn;
 use diesel::result::Error;
 use std::env;
 use urls;
-use urls::Url;
+use urls::entity::Url;
 use rocket::http::Status;
 use rocket::response::status;
 use rocket_contrib::json::Json;

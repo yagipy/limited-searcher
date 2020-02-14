@@ -3,7 +3,7 @@
 use diesel;
 use diesel::prelude::*;
 use schema::urls;
-use urls::Url;
+use urls::entity::Url;
 
 pub fn all(connection: &PgConnection) -> QueryResult<Vec<Url>> {
     urls::table.load::<Url>(&*connection)

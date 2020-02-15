@@ -36,7 +36,6 @@ struct InsertableUrl {
     folder_id: i32,
     url: String,
     status: bool,
-
 }
 
 impl InsertableUrl {

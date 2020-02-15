@@ -10,23 +10,23 @@ pub fn create_routes() {
         .manage(connection::init_pool())
         .mount("/api",
            routes![
-            users::handler::all,
-            users::handler::get,
-            users::handler::post,
-            users::handler::put,
-            users::handler::delete,
+            users::service::all,
+            users::service::get,
+            users::service::post,
+            users::service::put,
+            users::service::delete,
 
-            folders::handler::all,
-            folders::handler::get,
-            folders::handler::post,
-            folders::handler::put,
-            folders::handler::delete,
+            folders::service::all,
+            folders::service::get,
+            folders::service::post,
+            folders::service::put,
+            folders::service::delete,
 
-            urls::handler::all,
-            urls::handler::get,
-            urls::handler::post,
-            urls::handler::put,
-            urls::handler::delete,
+            urls::service::all,
+            urls::service::get,
+            urls::service::post,
+            urls::service::put,
+            urls::service::delete,
             ],
         ).launch();
 }

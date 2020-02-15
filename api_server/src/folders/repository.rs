@@ -33,6 +33,7 @@ pub fn delete(id: i32, connection: &PgConnection) -> QueryResult<usize> {
 #[derive(Insertable)]
 #[table_name = "folders"]
 struct InsertableFolder {
+    user_id: i32,
     name: String,
     status: bool,
 }
@@ -40,6 +41,7 @@ struct InsertableFolder {
 impl InsertableFolder {
     fn from_folder(folder: Folder) -> InsertableFolder {
         InsertableFolder {
+            user_id: folder.user_id,
             name: folder.name,
             status: folder.status,
         }

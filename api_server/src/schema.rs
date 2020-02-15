@@ -1,6 +1,7 @@
 table! {
     folders (id) {
         id -> Int4,
+        user_id -> Int4,
         name -> Varchar,
         status -> Bool,
     }
@@ -23,6 +24,7 @@ table! {
     }
 }
 
+joinable!(folders -> users (user_id));
 joinable!(urls -> folders (folder_id));
 
 allow_tables_to_appear_in_same_query!(

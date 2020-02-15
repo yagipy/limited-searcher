@@ -34,6 +34,12 @@ services:
       POSTGRES_PASSWORD: supersecretpassword
       PGDATA: /var/lib/postgresql/data/pgdata
 
+  browser:
+    image: "scrapinghub/splash"
+    ports:
+      - "8050:8050"
+
+
 # cargo will try to redownload packages @ docker-compose up so store them here.
 volumes:
   pgdata: {}

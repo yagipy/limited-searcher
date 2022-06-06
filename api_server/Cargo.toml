@@ -4,7 +4,7 @@ version = "0.2.0"
 authors = ["Hiroyuki Yagihashi <yale.cason@gmail.com>"]
 
 [dependencies]
-rocket = "0.4.2"
+rocket = "0.4.7"
 rocket_codegen = "0.4.2"
 diesel = { version = "1.4.1", features = ["postgres"] }
 dotenv = "0.15.0"
